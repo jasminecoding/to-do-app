@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "heroku": "^7.50.0",
     "mongodb": "^3.6.4",
     "nodemon": "^2.0.7",
     "sanitize-html": "^2.3.2"
