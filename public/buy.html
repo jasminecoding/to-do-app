@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        color: rgb(0, 0, 0);
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-align: center;
+      }
+      h1 {
+        text-decoration: underline;
+        text-align: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fruit Buy</h1>
+    <form id="ourForm">
+      <input
+        id="ourField"
+        type="text"
+        placeholder="add fruits . . . "
+        0autocomplete="off"
+      />
+      <button>Add to List</button>
+    </form>
+    <h3 id="fruitTitle">Fruit to Buy</h3>
+    <ul id="ourList"></ul>
+
+    <script>
+      let ourForm = document.getElementById("ourForm");
+      let ourField = document.getElementById("ourField");
+      let ourList = document.getElementById("ourList");
+
+      ourForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        createItem(ourField.value);
+      });
+
+      function createItem(x) {
+        let ourHTML = `<li>${x} <button onclick="deleteItem(this)">Delete</button></li><br>`;
+        ourList.insertAdjacentHTML("beforeend", ourHTML);
+        ourField.value = "";
+        ourField.focus();
+      }
+
+      function deleteItem(elementToDelete) {
+        elementToDelete.parentElement.remove();
+      }
+    </script>
+  </body>
+</html>
